@@ -11,7 +11,7 @@ defineProps({
 <template>
     <transition name="modal-outer">
         <div v-show="modalActive"
-        class="absolute w-full bg-black bg-opacity-30 h-screen top-0 left-0 flex justify-center px-8">
+        class="absolute w-full z-50 bg-black bg-opacity-30 h-screen top-0 left-0 flex justify-center px-8">
 
         <transition name="modal-inner">
         <div v-if="modalActive"
