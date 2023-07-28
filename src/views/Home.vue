@@ -3,11 +3,14 @@ import { ref, watch } from 'vue'
 
 const input = ref("")
 const cities = ref([])
+const timeout = ref([])
 
 
 // Get a list of cities that match the user's input
-    const getCities = async (city) => {
+    const getCities = (city) => {
        try{
+        clearTimeout(timeout.value)
+        timeout.value = setTimeout( async() => {
         const response = await fetch
         (`https://api.openweathermap.org/data/2.5/find?q=${city}&appid=f2eca4d4b657ee27eac21b7a41a0b4aa`)
         const {list} = await response.json()
@@ -16,6 +19,8 @@ const cities = ref([])
         cities.value = list
         console.log(cities.value)
         }
+        }, 1000)
+        
        //input.value = ""
        }
        catch(err) {
