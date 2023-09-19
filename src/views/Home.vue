@@ -65,7 +65,7 @@ const timeout = ref([])
                     Today's Highlights in {{ city.name }}, {{ city.sys.country }}
                 </p>
                  <div 
-                 class="gap-6 pt-6 mb-6"> 
+                 class="gap-6 pt-6"> 
                     <div class=" px-4 flex items-center justify-center">
                     <i class="fa-solid fa-cloud-sun fa-7x text-white mb-4"></i>
                     <div>
@@ -94,7 +94,7 @@ const timeout = ref([])
                     
                     <div class="px-4 bg-white rounded-md h-34">
                     <i class="fa-solid fa-cloud-showers-heavy text-6xl text-weather-primary mt-2"></i>
-                    <h3 class="text-center text-lg italic text-weather-primary">Rainfall (cubic)</h3>
+                    <h3 class="text-center text-lg italic text-weather-primary">Rainfall</h3>
                     <p class="text-xl text-center text-weather-primary">
                        <span v-if="city.rain" class="text-2xl">{{ city?.rain["1h"] }}m&#x33a5</span>
                        <span v-else>No Rain</span>
