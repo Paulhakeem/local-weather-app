@@ -66,12 +66,12 @@ const timeout = ref([])
                 </p>
                  <div 
                  class="gap-6 pt-6"> 
-                    <div class=" px-4 flex items-center justify-center">
+                    <div class=" px-4 flex items-center justify-center gap-2">
                     <i class="fa-solid fa-cloud-sun fa-7x text-white mb-4"></i>
                     <div>
-                        <h3 class="text-center text-lg italic text-white">Temperature</h3>
+                        <!-- <h3 class="text-center text-lg text-white">Temperature</h3> -->
                     <p class="text-xl text-center mb-4 text-white">
-                        <span class="text-6xl font-bold">{{ Math.round(city.main.temp) - 273}}</span>&#176C
+                        <span class="text-8xl font-semibold">{{ Math.round(city.main.temp) - 273}}</span>&#176C
                     </p>
                     </div>
                   
