@@ -54,7 +54,7 @@ const timeout = ref([])
             
             
             <ul
-                class="absolute text-white
+                class=" list absolute text-white
                 w-full py-2 top-[66px] bg-weather-secondary text-center items-center">
                
              <li

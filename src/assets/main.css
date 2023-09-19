@@ -5,3 +5,9 @@
 body{
     @apply bg-weather-primary;
 }
+
+@media (max-width: 768px) {
+    .list {
+        width: 100%;
+    }
+}
