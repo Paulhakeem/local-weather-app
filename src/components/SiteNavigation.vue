@@ -1,7 +1,37 @@
 <script setup>
 import { ref } from 'vue';
-import { RouterLink } from 'vue-router'
+import { RouterLink, useRoute, useRouter } from 'vue-router'
 import BaseModal from './BaseModal.vue';
+import { uid } from 'uid'
+
+const route = useRoute()
+const router = useRouter()
+const savedCity = ref([])
+console.log(savedCity)
+
+const saveCity = () => {
+  if(localStorage.getItem('savedCity')) {
+    savedCity.value = JSON.parse(
+      localStorage.getItem('savedCity')
+    )
+  }
+  const locationObj = {
+    id: uid(),
+    state: route.params.state,
+    city: route.params.city,
+    coord: {
+      lat: route.query.lat,
+      lng: route.query.lng,
+    }
+  }
+ savedCity.value.push(locationObj)
+ localStorage.setItem(
+  'savedCity', JSON.stringify(savedCity.value)
+ )
+ let query = Object.assign({}, route.query)
+ delete query.preview
+ router.replace({query})
+}
 
 const modalActive = ref(null)
 const toggleModal = () => {
@@ -20,7 +50,8 @@ modalActive.value = !modalActive.value
       <div class="flex gap-3 flex-1 justify-end">
         <i @click="toggleModal"
         class="fa-solid fa-circle-info text-2xl hover:text-weather-secondary duration-150 cursor-pointer"></i>
-        <i class="fa-solid fa-plus text-2xl hover:text-weather-secondary duration-150 cursor-pointer"></i>
+        <i @click="saveCity"
+        class="fa-solid fa-plus text-2xl hover:text-weather-secondary duration-150 cursor-pointer"></i>
       </div>
 
       <BaseModal 
